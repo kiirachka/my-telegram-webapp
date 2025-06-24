@@ -61,3 +61,23 @@
     </script>
 </body>
 </html>
+
+        <input type="text" id="name" placeholder="Имя">
+<input type="number" id="age" placeholder="Возраст">
+<select id="color">
+    <option value="red">Красный</option>
+    <option value="blue">Синий</option>
+</select>
+<button onclick="sendToBot()">Отправить</button>
+
+<script>
+    function sendToBot() {
+        const data = {
+            name: document.getElementById("name").value,
+            age: document.getElementById("age").value,
+            color: document.getElementById("color").value
+        };
+        Telegram.WebApp.sendData(JSON.stringify(data));
+        Telegram.WebApp.close();
+    }
+</script>
