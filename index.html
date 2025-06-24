@@ -24,3 +24,40 @@
 <body>
     <h1>Привет! Это Л...
     
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Моя форма</title>
+    <style>
+        body { font-family: Arial; text-align: center; padding: 20px; }
+        button { 
+            padding: 10px 20px; 
+            background: #0088cc; 
+            color: white; 
+            border: none; 
+            border-radius: 5px; 
+        }
+    </style>
+</head>
+<body>
+    <h1>📝 Форма</h1>
+    <p>Напиши что-нибудь:</p>
+    <input type="text" id="userText" placeholder="Текст...">
+    <button onclick="sendToBot()">Отправить боту</button>
+
+    <!-- Подключаем Telegram Web App API -->
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <script>
+        function sendToBot() {
+            const text = document.getElementById("userText").value;
+            
+            // Отправляем данные в бота
+            Telegram.WebApp.sendData(text);
+            
+            // Закрываем Web App
+            Telegram.WebApp.close();
+        }
+    </script>
+</body>
+</html>
